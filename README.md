@@ -9,6 +9,7 @@
 
 - Clone this repo.
 - Run `yarn install` to install dependencies.
+- Provide `Puclic API Key` for client in .env.example file.
 - Run `yarn dev` to start the development server.
 
 ## Production
