@@ -6,7 +6,6 @@ export default function Status() {
     const [status, setStatus] = useState([])
     const [intervalId, setIntervalId] = useState(0)
     const [avg, setAvg] = useState(0)
-    const [color,setColor] = useState("")
 
     const fetchData = () => {
         const requestStart = new Date();
@@ -15,17 +14,12 @@ export default function Status() {
             data.latency = currentTime - requestStart;
             data.time = currentTime;
             setStatus(oldArray => [...oldArray, data]);
-        }).catch(function (error) {
-            if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
+        }).catch((error) => {
+            console.error("Error in FetchStatus:", error);
+            if (error.message == "Network Error") {
+                console.error("Too Many Requests (429) Error:", error);
             }
-        }).then((status) => {
-            if (status > 399) {
-                setColor("red");
-            }
-        });;
+        });
     }
     useEffect(() => {
         if (status.filter((item) => {
@@ -58,7 +52,7 @@ export default function Status() {
                         status && status.map((item) => {
                             return (
                                 <div key={item.time}>
-                                    <UptimeStatus color={color} isOk={item.status == "Success"} />
+                                    <UptimeStatus isOk={item.status == "Success"} />
                                 </div>
                             )
                         })
