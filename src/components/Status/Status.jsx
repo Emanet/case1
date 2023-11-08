@@ -30,7 +30,7 @@ export default function Status() {
             const avg = (sumWithInitial / status.length) || 0;
             setAvg(avg.toFixed(0));
         }
-    }, [status])
+    }, [status,intervalId])
 
 
     useEffect(() => {
