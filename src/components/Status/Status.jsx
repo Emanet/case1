@@ -49,11 +49,9 @@ export default function Status() {
                 <StyledH>Average Latency Time: {avg ? avg : 0}ms </StyledH>
                 <StyledBox>
                     {
-                        status && status.map((item) => {
+                        status && status.map((item, index) => {
                             return (
-                                <div key={item.time}>
-                                    <UptimeStatus isOk={item.status == "Success"} />
-                                </div>
+                                <UptimeStatus key={index} isok={item.status} />
                             )
                         })
                     }

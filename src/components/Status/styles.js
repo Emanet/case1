@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const UptimeStatus = styled.div`
 display: inline-block;
-background-color: ${props => props.isok ? 'green' : 'yellow'};
+background-color: ${props => props.isok === "Success" ? 'green' : 'yellow'};
 width: 1em;
 text-align: center;
 margin-right: 2%;
