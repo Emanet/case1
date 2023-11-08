@@ -3,18 +3,20 @@ import styled from "styled-components";
 
 export const UptimeStatus = styled.div`
 display: inline-block;
-background-color: ${props => props.isOk ? 'green' : 'yellow'};
+background-color: ${props => props.isok ? 'green' : 'yellow'};
 width: 1em;
-height:5em;
-margin:5px;
 text-align: center;
+margin-right: 2%;
 `
+
 export const StyledBox = styled.div`
-border-style:solid;
+border-style: solid;
 width: 50%;
 margin: 0 auto;
-display:flex;
-overflow:auto;
+display: flex;
+overflow: auto;
+height: 6em;
+padding: 1em;
 `
 export const StyledH = styled.h2`
 width: 50%;
