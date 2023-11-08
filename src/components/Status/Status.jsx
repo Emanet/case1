@@ -14,12 +14,7 @@ export default function Status() {
             data.latency = currentTime - requestStart;
             data.time = currentTime;
             setStatus(oldArray => [...oldArray, data]);
-        }).catch((error) => {
-            console.error("Error in FetchStatus:", error);
-            if (error.message == "Network Error") {
-                console.error("Too Many Requests (429) Error:", error);
-            }
-        });
+        })
     }
     useEffect(() => {
         if (status.filter((item) => {
@@ -30,7 +25,7 @@ export default function Status() {
             const avg = (sumWithInitial / status.length) || 0;
             setAvg(avg.toFixed(0));
         }
-    }, [status,intervalId])
+    }, [status, intervalId])
 
 
     useEffect(() => {
